@@ -299,21 +299,7 @@ def login():
 		os.system('clear')
 		print logo
 		print 42*"\033[1;96m="
-		print('\033[1;96m[⏺️]\x1b[1;93m USE A FRESH/NEW ACCOUNT TO LOGIN \x1b[1;96m[⏺️]' )
-		id = raw_input('\033[1;96m[+] \x1b[1;96mID/Email \x1b[1;91m: \x1b[1;13m')
-		pwd = raw_input('\033[1;96m[+] \x1b[1;96mPassword \x1b[1;90m: \x1b[1;92m')
-		tik()
-		try:
-			br.open('https://m.facebook.com')
-		except mechanize.URLError:
-			print"\n\033[1;96m[!] \x1b[1;91mThere is no internet connection"
-			keluar()
-		br._factory.is_html = True
-		br.select_form(nr=0)
-		br.form['email'] = id
-		br.form['pass'] = pwd
-		br.submit()
-		url = br.geturl()
+		
 		if 'save-device' in url:
 			try:
 				sig= 'api_key=882a8490361da98702bf97a021ddc14dcredentials_type=passwordemail='+id+'format=JSONgenerate_machine_id=1generate_session_cookies=1locale=en_USmethod=auth.loginpassword='+pwd+'return_ssl_resources=0v=1.062f8ce9f74b12f84c123cc23437a4a32'
